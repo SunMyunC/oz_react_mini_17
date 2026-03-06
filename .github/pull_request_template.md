@@ -17,6 +17,5 @@
 
 ## 구현 이미지
 
-<img width="1512" height="949" alt="스크린샷 2026-03-06 오전 10 05 22" src="https://github.com/user-attachments/assets/3326a6f5-8444-42f3-9c3b-5ca95a4aa832" />
-<img width="1512" height="950" alt="스크린샷 2026-03-06 오전 10 05 40" src="https://github.com/user-attachments/assets/85a31fce-c068-4808-9f63-bfdb88454e8c" />
+- 
 

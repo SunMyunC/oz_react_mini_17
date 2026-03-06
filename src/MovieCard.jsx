@@ -1,31 +1,25 @@
-import movieListData from "../data/movieListData.json";
 import { Link } from "react-router-dom";
 
-const MovieCard = () => {
+const MovieCard = ({ movie }) => {
   return (
-    <div className="flex flex-wrap justify-center gap-6 p-6">
-      {movieListData.results.map((movie) => (
-        <Link
-          to={`/details`}
-          key={movie.id}
-          className="no-underline text-inherit"
-        >
-          <div className="w-[200px] p-4 bg-white rounded-lg shadow-md text-center hover:scale-105 transition-transform duration-200">
-            <img
-              src={movie.poster_path}
-              alt={movie.original_title}
-              className="w-full rounded-md"
-            />
-            <h3 className="text-sm font-semibold mt-3">
-              {movie.original_title}
-            </h3>
-            <p className="text-gray-500 text-sm">
-              {movie.vote_average}
-            </p>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <Link to="/details" className="no-underline text-black">
+      <div className="w-[200px] bg-white border border-gray-300 overflow-hidden shadow-sm">
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          className="w-full h-[300px] object-cover"
+        />
+
+        <div className="p-3">
+          <h3 className="text-lg font-semibold break-keep">
+            {movie.title}
+          </h3>
+          <p className="text-sm text-gray-600 mt-2">
+            평점: {movie.vote_average}
+          </p>
+        </div>
+      </div>
+    </Link>
   );
 };
 

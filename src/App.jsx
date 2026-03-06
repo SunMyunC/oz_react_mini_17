@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import MovieCard from "./MovieCard";
 import MovieDetail from "./MovieDetail";
+import './App.css';
 
 function App() {
   return (

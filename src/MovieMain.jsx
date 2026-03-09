@@ -29,7 +29,9 @@ const MovieMain = () => {
   return (
     <div className="max-w-[1400px] mx-auto px-6 py-8">
       <div className="flex flex-wrap gap-6 justify-center">
-        {movies.map((movie) => (
+        {movies
+        .filter((movie) => !movie.adult)
+        .map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>

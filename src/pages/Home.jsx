@@ -1,27 +1,16 @@
 import { useEffect, useState } from "react";
-import MovieCard from "./MovieCard";
+import MovieCard from "../movie/MovieCard";
+import { getPopularMovies } from "../Api/tmbdApi";
 
-const MovieMain = () => {
+const Home = () => {
 
   const [movies, setMovies] = useState([]);
-
-  const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
-  }
-};
-console.log(import.meta.env.VITE_TMDB_API_KEY) 
 
    useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await fetch(
-          `https://api.themoviedb.org/3/movie/popular`, options
-        );
-
-        const data = await res.json();
+        const data = await getPopularMovies({ language: "ko-KR"});
+        
         console.log(data);
         setMovies(data.results);
       } catch (error) {
@@ -31,6 +20,7 @@ console.log(import.meta.env.VITE_TMDB_API_KEY)
 
     fetchMovies();
   }, []);
+console.log(import.meta.env.VITE_TMDB_TOKEN);
 
   return (
     <div className="max-w-[1400px] mx-auto px-6 py-8">
@@ -45,4 +35,4 @@ console.log(import.meta.env.VITE_TMDB_API_KEY)
   );
 };
 
-export default MovieMain;
+export default Home;

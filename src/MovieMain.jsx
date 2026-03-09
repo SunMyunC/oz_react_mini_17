@@ -12,7 +12,7 @@ const MovieMain = () => {
     const fetchMovies = async () => {
       try {
         const res = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR`
         );
 
         const data = await res.json();

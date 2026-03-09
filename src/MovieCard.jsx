@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
-    <Link to="/details" className="no-underline text-black">
+        <Link
+          key={movie.id}
+          to={`/details/${movie.id}`}
+          className="no-underline text-inherit"
+        >
       <div className="w-[200px] bg-white border border-gray-300 overflow-hidden shadow-sm">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

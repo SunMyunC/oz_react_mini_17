@@ -17,7 +17,7 @@ const MovieDetail = () => {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer ${import.meta.env.VITE_TMDB_API_KEY'
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`
   }
 };
 
@@ -29,7 +29,7 @@ const MovieDetail = () => {
         setError(null);
 
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}?language=ko-KR`, options
+          `https://api.themoviedb.org/3/movie/${id}`, options
         );
 
         // 응답 실패 시 에러 처리

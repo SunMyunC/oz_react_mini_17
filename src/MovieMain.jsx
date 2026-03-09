@@ -6,13 +6,20 @@ const MovieMain = () => {
   const [movies, setMovies] = useState([]);
 
   const apiKey = import.meta.env.VITE_TMDB_API_KEY;
-  console.log("apiKey:", apiKey);
+
+  const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer ${import.meta.env.VITE_TMDB_API_KEY'
+  }
+};
 
    useEffect(() => {
     const fetchMovies = async () => {
       try {
         const res = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR`
+          `https://api.themoviedb.org/3/movie/popular?language=ko-KR`, options
         );
 
         const data = await res.json();

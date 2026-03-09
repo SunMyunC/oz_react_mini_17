@@ -13,6 +13,14 @@ const MovieDetail = () => {
   // 에러 메시지 저장
   const [error, setError] = useState(null);
 
+  const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer ${import.meta.env.VITE_TMDB_API_KEY'
+  }
+};
+
   useEffect(() => {
     // 영화 상세 정보를 가져오는 비동기 함수
     const fetchMovieDetail = async () => {
@@ -21,7 +29,7 @@ const MovieDetail = () => {
         setError(null);
 
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_TMDB_API_KEY}&language=ko-KR`
+          `https://api.themoviedb.org/3/movie/${id}?language=ko-KR`, options
         );
 
         // 응답 실패 시 에러 처리

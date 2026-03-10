@@ -1,4 +1,4 @@
-const MovieDetail = ({movie}) => {
+const MovieDetail = ({ movie }) => {
 
   return (
     <div className="max-w-[1100px] mx-auto p-6">

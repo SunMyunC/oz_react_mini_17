@@ -1,26 +1,41 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../movie/MovieCard";
-import { getPopularMovies } from "../Api/tmbdApi";
+import { getPopularMovies, getMovieSearch } from "../Api/tmbdApi";
+import { useSearchParams } from "react-router-dom";
 
 const Home = () => {
 
   const [movies, setMovies] = useState([]);
+const [searchParams] = useSearchParams();
 
-   useEffect(() => {
+  // URL에서 query 값 가져오기
+  const query = searchParams.get("query") || "";
+
+  useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const data = await getPopularMovies({ language: "ko-KR"});
+        let data;
+
+        // 검색어가 있으면 검색 API 호출
+        if (query.trim()) {
+          console.log("검색 API 호출");
+          data = await getMovieSearch(query);
+        } else {
+          // 검색어가 없으면 인기 영화 목록 호출
+          console.log("인기 영화 목록 호출");
+          data = await getPopularMovies(); 
+        }
+
+        console.log("받아온 데이터:", data);
+        console.log("results:", data.results);
         
-        console.log(data);
-        setMovies(data.results);
+        setMovies(data.results || []);
       } catch (error) {
         console.error("데이터를 불러오는 중 오류 발생:", error);
       }
     };
-
     fetchMovies();
-  }, []);
-console.log(import.meta.env.VITE_TMDB_TOKEN);
+  }, [query]);
 
   return (
     <div className="max-w-[1400px] mx-auto px-6 py-8">

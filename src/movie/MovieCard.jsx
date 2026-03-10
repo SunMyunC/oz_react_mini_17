@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const MovieCard = ({ movie }) => {
   return (
         <Link
-          key={movie.id}
           to={`/details/${movie.id}`}
           className="no-underline text-inherit"
         >

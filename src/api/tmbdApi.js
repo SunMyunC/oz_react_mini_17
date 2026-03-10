@@ -19,7 +19,7 @@ const buildUrl = (endpoint, queryParams) => {
 
 // 1. 인기 영화 목록 가져오기 (Home용)
 export const getPopularMovies = async (queryParams = {}) => {
-  const response = await fetch(buildUrl('/movie/popular', queryParams), defaultOptions);
+  const response = await fetch(buildUrl('/movie/popular', {language: "ko-KR", ...queryParams}), defaultOptions);
   
   if (!response.ok) throw new Error("인기 영화 목록을 불러오지 못했습니다.");
   return await response.json();
@@ -27,8 +27,16 @@ export const getPopularMovies = async (queryParams = {}) => {
 
 // 2. 영화 상세 정보 가져오기 (Detail용)
 export const getMovieDetail = async (id, queryParams = {}) => {
-  const response = await fetch(buildUrl(`/movie/${id}`, queryParams), defaultOptions);
+  const response = await fetch(buildUrl(`/movie/${id}`, {language: "ko-KR", ...queryParams}), defaultOptions);
   
   if (!response.ok) throw new Error("영화 상세 정보를 불러오지 못했습니다.");
+  return await response.json();
+};
+
+// 3. 영화 검색 결과 가져오기 (Search용)
+export const getMovieSearch = async (keyword, queryParams = {}) => {
+  const response = await fetch(buildUrl(`/search/movie`, {language: "ko-KR", query: keyword, ...queryParams}), defaultOptions);
+  
+  if (!response.ok) throw new Error("영화 검색 결과를 불러오지 못했습니다.");
   return await response.json();
 };

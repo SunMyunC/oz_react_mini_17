@@ -37,14 +37,16 @@ const Home = () => {
   }, [query])
 
   return (
-    <div className="max-w-[1400px] mx-auto px-6 py-8">
-      <div className="flex flex-wrap gap-6 justify-center">
-        {movies
-          .filter((movie) => !movie.adult)
-          .map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
-      </div>
+    <div className="w-full min-h-screen bg-black pt-20">
+      <section className="max-w-screen-2xl mx-auto px-6 py-6">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
+          {movies
+            .filter((movie) => !movie.adult)
+            .map((movie) => (
+              <MovieCard key={movie.id} movie={movie} />
+            ))}
+        </div>
+      </section>
     </div>
   )
 }

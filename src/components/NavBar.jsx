@@ -20,16 +20,17 @@ const NavBar = () => {
   }, [debouncedSearch, setSearchParams])
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex items-center justify-between p-4">
-      <h1 className="text-xl font-bold">Movie</h1>
-
-      <input
-        type="text"
-        placeholder="영화 검색"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="border rounded px-3 py-2 w-64"
-      />
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-white/10">
+      <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4 md:px-8 lg:px-12 py-4">
+        <h1 className="text-purple-600 text-2xl md:text-3xl font-extrabold tracking-wide">MOVIE</h1>
+        <input
+          type="text"
+          placeholder="영화 검색"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full md:w-72 lg:w-80 bg-zinc-900 text-white border border-zinc-700 rounded-md px-4 py-2 outline-none focus:border-white placeholder:text-zinc-400"
+        />
+      </div>
     </nav>
   )
 }

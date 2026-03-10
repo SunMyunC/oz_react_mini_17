@@ -1,7 +1,7 @@
-import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
+import { Routes, Route } from "react-router-dom"
+import Layout from "./components/Layout"
+import Home from "./pages/Home"
+import Detail from "./pages/Detail"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Route path="/details/:id" element={<Detail />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

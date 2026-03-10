@@ -1,5 +1,4 @@
 const MovieDetail = ({ movie }) => {
-
   return (
     <div className="max-w-[1100px] mx-auto p-6">
       <div className="grid grid-cols-[300px_1fr] gap-6">
@@ -30,9 +29,7 @@ const MovieDetail = ({ movie }) => {
 
           {/* 장르 */}
           <div className="border-4 border-slate-900 bg-sky-900 text-white flex items-center justify-center h-[90px] text-2xl font-semibold px-4 text-center">
-            {movie.genres && movie.genres.length > 0
-              ? movie.genres.map((g) => g.name).join(", ")
-              : "장르 정보 없음"}
+            {movie.genres && movie.genres.length > 0 ? movie.genres.map((g) => g.name).join(", ") : "장르 정보 없음"}
           </div>
 
           {/* 줄거리 */}
@@ -42,7 +39,7 @@ const MovieDetail = ({ movie }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MovieDetail;
+export default MovieDetail

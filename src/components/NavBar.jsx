@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import useDebounce from "./useDebounce";
+import useDebounce from "../hooks/useDebounce";
 import { useSearchParams } from "react-router-dom";
 
 const NavBar = () => {

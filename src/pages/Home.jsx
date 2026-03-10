@@ -25,10 +25,9 @@ const Home = () => {
           data = await getPopularMovies()
         }
 
-        console.log("받아온 데이터:", data)
-        console.log("results:", data.results)
+        const filteredMovies = (data.results || []).filter((movie) => !movie.adult)
 
-        setMovies(data.results || [])
+        setMovies(filteredMovies)
       } catch (error) {
         console.error("데이터를 불러오는 중 오류 발생:", error)
       }
@@ -40,11 +39,9 @@ const Home = () => {
     <div className="w-full min-h-screen bg-black pt-20">
       <section className="max-w-screen-2xl mx-auto px-6 py-6">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
-          {movies
-            .filter((movie) => !movie.adult)
-            .map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
         </div>
       </section>
     </div>

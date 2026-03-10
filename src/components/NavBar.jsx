@@ -13,9 +13,9 @@ const NavBar = () => {
   // debounce된 값이 변경되면 URL searchParams 업데이트
   useEffect(() => {
     if (debouncedSearch.trim()) {
-      setSearchParams({ query: debouncedSearch })
+      setSearchParams({ query: debouncedSearch }, { replace: true })
     } else {
-      setSearchParams({})
+      setSearchParams({}, { replace: true })
     }
   }, [debouncedSearch, setSearchParams])
 

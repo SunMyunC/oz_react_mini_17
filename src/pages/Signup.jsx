@@ -30,7 +30,7 @@ const Signup = () => {
         max-w-md
         sm:max-w-lg
         lg:max-w-xl
-        bg-zinc-900
+        bg-gray-900
         text-white
         p-8
         sm:p-10
@@ -48,7 +48,7 @@ const Signup = () => {
           placeholder="아이디"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="p-3 sm:p-4 rounded bg-zinc-800 border border-zinc-700 focus:outline-none focus:border-purple-500"
+          className="p-3 sm:p-4 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500"
         />
 
         {/* 이메일 */}
@@ -57,7 +57,7 @@ const Signup = () => {
           placeholder="이메일"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="p-3 sm:p-4 rounded bg-zinc-800 border border-zinc-700 focus:outline-none focus:border-purple-500"
+          className="p-3 sm:p-4 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500"
         />
 
         {/* 비밀번호 */}
@@ -66,7 +66,7 @@ const Signup = () => {
           placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="p-3 sm:p-4 rounded bg-zinc-800 border border-zinc-700 focus:outline-none focus:border-purple-500"
+          className="p-3 sm:p-4 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500"
         />
 
         {/* 비밀번호 확인 */}
@@ -75,7 +75,7 @@ const Signup = () => {
           placeholder="비밀번호 확인"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          className="p-3 sm:p-4 rounded bg-zinc-800 border border-zinc-700 focus:outline-none focus:border-purple-500"
+          className="p-3 sm:p-4 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-purple-500"
         />
 
         {/* 회원가입 버튼 */}

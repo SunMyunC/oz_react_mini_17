@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import useDebounce from "../hooks/useDebounce"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, Link } from "react-router-dom"
 
 const NavBar = () => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -22,7 +22,12 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/90 backdrop-blur-sm border-b border-white/10">
       <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3 px-4 md:px-8 lg:px-12 py-4">
-        <h1 className="text-purple-600 text-2xl md:text-3xl font-extrabold tracking-wide">MOVIE</h1>
+        {/* MOVIE 로고 클릭 시 메인페이지로 이동 */}
+        <Link to="/">
+          <h1 className="text-purple-600 text-2xl md:text-3xl font-extrabold tracking-wide">MOVIE</h1>
+        </Link>
+
+        {/* 검색창 */}
         <input
           type="text"
           placeholder="영화 검색"
@@ -30,6 +35,14 @@ const NavBar = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full md:w-72 lg:w-80 bg-zinc-900 text-white border border-zinc-700 rounded-md px-4 py-2 outline-none focus:border-white placeholder:text-zinc-400"
         />
+
+        {/* 로그인 페이지 이동 버튼 */}
+        <Link
+          to="/login"
+          className="text-white border border-white/30 px-4 py-2 rounded-md hover:bg-white hover:text-black transition"
+        >
+          로그인
+        </Link>
       </div>
     </nav>
   )

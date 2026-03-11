@@ -1,14 +1,14 @@
 import { useState } from "react"
 
 const Login = () => {
-  const [email, setEmail] = useState("")
+  const [id, setId] = useState("")
   const [password, setPassword] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     console.log("로그인 시도")
-    console.log("email:", email)
+    console.log("id:", id)
     console.log("password:", password)
   }
 
@@ -21,10 +21,10 @@ const Login = () => {
         <h1 className="text-2xl sm:text-3xl font-bold text-center">Login</h1>
 
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          type="text"
+          placeholder="ID"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
           className="w-full rounded-md px-4 py-3 sm:py-4 text-white text-base sm:text-lg"
         />
 
